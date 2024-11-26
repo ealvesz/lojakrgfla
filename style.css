@@ -1,0 +1,421 @@
+/* Estilos Gerais */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lora:wght@400;700&display=swap');
+
+/* Tipografia geral */
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte mais moderna */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Fundo Claro */
+    color: #333; /* Texto Escuro */
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif; /* Fonte serifada para títulos */
+}
+
+header {
+    background-color: #111; /* Cor Escura no Header */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo img {
+    height: 100px;
+    width: 100%;      /* Faz a imagem preencher a largura do contêiner */
+    object-fit: cover; /* A imagem vai preencher o espaço sem distorcer, mas pode cortar as bordas */
+}
+
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .menu li a:hover {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra no hover */
+}
+
+.navbar .pesquisa input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+.navbar .pesquisa button {
+    background-color: #C8102E; /* Vermelho */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .pesquisa button:hover {
+    transform: scale(1.05); /* Suaviza o efeito de zoom */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra no hover */
+}
+
+/* Seções Gerais */
+.marketing h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.marketing p {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.marketing .btn-promocao {
+    padding: 15px 5px;
+    background-color: black; /* Preto */
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.marketing .btn-promocao:hover {
+    background-color: #C8102E; /* Vermelho */
+    transform: scale(1.05); /* Efeito de zoom */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra no hover */
+}
+
+/* Seção de Boas-vindas para Fãs */
+.boas-vindas {
+    background-color: #C8102E; /* Vermelho */
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.boas-vindas h1 {
+    font-size: 2.0em;
+    margin-bottom: 20px;
+}
+
+.boas-vindas p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.boas-vindas .btn-promocao {
+    padding: 15px 30px;
+    background-color: black; /* Preto */
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boas-vindas .btn-promocao:hover {
+    background-color: #C8102E; /* Vermelho */
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra no hover */
+}
+
+/* Adicionando imagem de fundo */
+.boas-vindas::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('sua-imagem-de-boas-vindas.jpg'); /* Substitua pela URL da sua imagem */
+    background-position: center;
+    background-size: cover; /* Garante que a imagem cubra a área sem distorcer */
+    opacity: 0.4; /* Deixa a imagem mais suave para não competir com o texto */
+    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+}
+
+/* Seção de Destaques */
+.destaques {
+    padding: 40px 20px;
+    background-color: #fff; /* Branco */
+    text-align: center;
+}
+
+.destaques h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #C8102E; /* Vermelho */
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Grid responsivo */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0; /* Inicialmente invisível */
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.produto {
+    background-color: #fff; /* Branco */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Inicialmente invisível */
+    animation: slideIn 0.5s ease-out forwards;
+    animation-delay: 0.2s; /* Delay para efeito sequencial */
+}
+
+.produto:hover {
+    transform: translateY(-10px); /* Levanta o card ao passar o mouse */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra maior */
+}
+
+.produto img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.produto p {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.produto.promocional {
+    border-color: #C8102E; /* Vermelho */
+    background-color: #f9f9f9;
+}
+
+.produto.promocional .promocao {
+    display: inline-block;
+    background-color: #C8102E; /* Vermelho */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1em; /* Tamanho ajustado */
+    margin-bottom: 10px; /* Espaçamento adicional */
+}
+
+/* Botões de Compra */
+.btn-comprar {
+    padding: 8px 18px; /* Tamanho mais compacto */
+    background-color: black; /* Preto */
+    color: white;
+    font-size: 1.1em; /* Tamanho de fonte mais adequado */
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block; /* Garante que o botão fique na mesma linha */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #111; /* Preto */
+    transform: translateY(-5px); /* Levanta o botão */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra no hover */
+}
+
+/* Footer */
+footer {
+    background-color: #C8102E; /* Vermelho */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social a {
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+footer .social a:hover {
+    color: #111; /* Preto */
+}
+
+footer p {
+    font-size: 1.1em;
+}
+
+/* Seção de Contato */
+.contato {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.contato h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #C8102E; /* Vermelho */
+}
+
+.contato .informacoes, .contato .formulario {
+    width: 45%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contato .informacoes p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.contato .formulario input, .contato .formulario textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.contato .formulario button {
+    padding: 15px 30px;
+    background-color: #C8102E; /* Vermelho */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contato .formulario button:hover {
+    background-color: #111; /* Preto */
+}
+
+/* Estilos para a seção de Testemunhos */
+.depoimentos {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.depoimentos h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #C8102E; /* Vermelho */
+}
+
+.depoimentos .testemunho {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.depoimentos .testemunho p {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.depoimentos .testemunho .autor {
+    font-weight: bold;
+}
+
+/* Animação de fadeIn */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    /* Mobile */
+    .navbar .menu {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .navbar .pesquisa input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .produtos {
+        grid-template-columns: 1fr; /* Apenas uma coluna */
+    }
+
+    .contato .informacoes, .contato .formulario {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .depoimentos h2 {
+        font-size: 2.0em;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    /* Tablet */
+    .produtos {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .contato .informacoes, .contato .formulario {
+        width: 48%;
+    }
+
+    .depoimentos h2 {
+        font-size: 2.3em;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Desktop */
+    .produtos {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 4 ou mais colunas */
+    }
+
+    .contato .informacoes, .contato .formulario {
+        width: 45%;
+    }
+
+    .depoimentos h2 {
+        font-size: 2.5em;
+    }
+}
